@@ -1,0 +1,6 @@
+$kind: http-request
+name: api/wrong-url
+description: ""
+url: http://localhost:3000/wrong-url
+method: GET
+order: 4503599007107427

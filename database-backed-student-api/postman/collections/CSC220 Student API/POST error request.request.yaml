@@ -1,0 +1,12 @@
+$kind: http-request
+description: ""
+url: http://localhost:3000/api/studentshttp://localhost:3000/
+method: POST
+body:
+  type: json
+  content: |
+    {
+      "major": "IT",
+      "score": 80
+    }
+order: 4503590704533707

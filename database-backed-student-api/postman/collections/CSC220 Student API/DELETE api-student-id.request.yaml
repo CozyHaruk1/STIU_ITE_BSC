@@ -1,0 +1,6 @@
+$kind: http-request
+name: DELETE api/student/id
+description: ""
+url: http://localhost:3000/api/students/6ab096d4ac66144c8ec2665e
+method: DELETE
+order: 4503597831766324

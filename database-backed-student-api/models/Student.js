@@ -5,10 +5,12 @@ const studentSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+
   major: {
     type: String,
     required: true
   },
+
   score: {
     type: Number,
     min: 0,

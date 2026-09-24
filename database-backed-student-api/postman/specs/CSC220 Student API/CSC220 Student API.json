@@ -1,0 +1,123 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "CSC220 Student API",
+    "version": "1.0.0",
+    "description": ""
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/api/students": {
+      "get": {
+        "summary": "New Request",
+        "responses": {},
+        "tags": [
+          "New Folder"
+        ]
+      },
+      "post": {
+        "summary": "http://localhost:3000/api/students",
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "major": {
+                    "type": "string"
+                  },
+                  "score": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "name": "Mek",
+                "major": "IT",
+                "score": 78
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/students/6ab096d4ac66144c8ec2665e": {
+      "get": {
+        "summary": "http://localhost:3000/api/students/6ab096d4ac66144c8ec2665e",
+        "responses": {}
+      },
+      "patch": {
+        "summary": "PATH api/student/id",
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "score": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "score": 95
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "DELETE api/student/id",
+        "responses": {}
+      }
+    },
+    "/api/studentshttp://localhost{3000}/": {
+      "post": {
+        "summary": "POST error request",
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "major": {
+                    "type": "string"
+                  },
+                  "score": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "example": {
+                "major": "IT",
+                "score": 80
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/students/66f1a2b3c4d5e6f789012345": {
+      "get": {
+        "summary": "GET api/students/invalid_id",
+        "responses": {}
+      }
+    },
+    "/wrong-url": {
+      "get": {
+        "summary": "api/wrong-url",
+        "responses": {}
+      }
+    }
+  }
+}

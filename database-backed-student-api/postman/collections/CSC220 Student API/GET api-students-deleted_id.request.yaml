@@ -1,0 +1,6 @@
+$kind: http-request
+name: GET api/students/deleted_id
+description: ""
+url: http://localhost:3000/api/students/6ab096d4ac66144c8ec2665e
+method: GET
+order: 4503598412685947
