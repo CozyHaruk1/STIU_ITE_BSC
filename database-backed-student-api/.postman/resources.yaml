@@ -1,5 +1,6 @@
 workspace:
   id: a44ed658-2266-4759-80cf-52d55e50ba25
+
 localResources:
   specs:
     - ../postman/specs/CSC220 Student API/CSC220 Student API.json

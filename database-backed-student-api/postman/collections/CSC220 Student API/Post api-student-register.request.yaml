@@ -1,0 +1,13 @@
+$kind: http-request
+name: Post api/student/register
+description: ""
+url: http://localhost:3000/api/auth/register
+method: POST
+body:
+  type: json
+  content: |
+    {
+      "email": "student1@example.com",
+      "password": "password123"
+    }
+order: 4503599251705408

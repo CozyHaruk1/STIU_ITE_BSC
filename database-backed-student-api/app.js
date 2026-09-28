@@ -1,6 +1,9 @@
 const express = require("express");
 const connectDB = require("./config/db");
 const Student = require("./models/Student");
+const authRoutes = require("./routes/auth");
+const auth = require("./middleware/auth");
+const requireRole = require("./middleware/requireRole");
 
 const app = express();
 const PORT = 3000;
@@ -32,6 +35,8 @@ app.get("/api/students", async (req, res) => {
   }
 });
 
+app.use("/api/auth", authRoutes);
+
 app.get("/api/students/:id", async (req, res) => {
   try {
     const student = await Student.findById(req.params.id);
@@ -44,7 +49,7 @@ app.get("/api/students/:id", async (req, res) => {
   }
 });
 
-app.post("/api/students", async (req, res) => {
+app.post("/api/students", auth, async (req, res) => {
   try {
     const created = await Student.create(req.body);
     res.status(201).json(created);
@@ -53,7 +58,7 @@ app.post("/api/students", async (req, res) => {
   }
 });
 
-app.patch("/api/students/:id", async (req, res) => {
+app.patch("/api/students/:id", auth, async (req, res) => {
   try {
     const updated = await Student.findByIdAndUpdate(
       req.params.id,
@@ -69,17 +74,14 @@ app.patch("/api/students/:id", async (req, res) => {
   }
 });
 
-app.delete("/api/students/:id", async (req, res) => {
-  try {
-    const deleted = await Student.findByIdAndDelete(req.params.id);
-    if (!deleted) {
-      return res.status(404).json({ error: "Student not found" });
-    }
-    res.status(204).send();
-  } catch (error) {
-    res.status(400).json({ error: "Invalid student ID" });
+app.delete(
+  "/api/students/:id",
+  auth,
+  requireRole("admin"),
+  async (req, res) => {
+    // keep your existing DELETE code here
   }
-});
+);
 
 app.use((req, res) => {
   res.status(404).json({ error: "Route not found" });
